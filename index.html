@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Neon Snake</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- ! НЕ РУШ ========== -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- ! НЕ РУШ ========== -->
+
+    <!-- / ICON -->
+    <link rel="icon" href="/img/icon.png" />
+    <!-- / NULL STYLE -->
+    <link rel="stylesheet" href="css/null.css" />
+    <!-- / STYLE -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ! НЕ РУШ ========== -->
+    <div id="installContainer" class="hidden"></div>
+    <script src="/script.js" defer></script>
+    <div
+      class="glitchButton"
+      style="position: fixed; top: 20px; right: 20px"
+    ></div>
+    <script src="https://button.glitch.me/button.js"></script>
+    <!-- ! НЕ РУШ ========== -->
+
+
+    <!--CODE_CODE_CODE-->
+
+    <div class="sidebar">
+      <div class="container">
+        <div class="left">
+          <div id="speed1">Super Slow Speed</div>
+          <div id="speed2">Low Speed</div>
+          <div id="speed3" class="active">Normal Speed</div>
+          <div id="speed4">High Speed</div>
+          <!--<div id="speed5">Impossible Speed</div>-->
+        </div>
+        <div class="right">
+          <div id="food1" class="active">1 Berry</div>
+          <div id="food2">2 Berries</div>
+          <div id="food3">3 Berries</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ground" class="canvas-flex">
+      <div class="score">
+        <div id="score">Score: </div>
+        <div id="max">Max Score: </div>
+      </div>
+      <div class="canvas-wrapper">
+        <canvas id="game" width="400" height="400"></canvas>
+      </div>
+      <!--<div class="controls">
+        <div class="top">
+          <div id="up"><img src="/img/up.svg" alt=""></div>
+        </div>
+        <div class="mid">
+          <div id="left"><img src="/img/left.svg" alt=""></div>
+          <div id="right"><img src="/img/right.svg" alt=""></div>
+        </div>
+        <div class="bot">
+          <div id="down"><img src="/img/down.svg" alt=""></div>
+        </div>
+      </div>-->
+    </div>
+
+    <!--CODE_CODE_CODE-->
+
+    <!-- / JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <!-- / GAME SCRIPT -->
+    <script src="/js/game.js"></script>
+  </body>
+</html>
