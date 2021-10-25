@@ -12,6 +12,21 @@ var count = 0;
 //Кількість їжі
 var food_num = 1;
 
+//Колір скіна
+var skin = 1;
+
+//Кольори
+var pink = "#910033";
+var pink_light = "#E10056";
+
+var blue = "#120286";
+var blue_light = "#1C00EC";
+
+var red = "#BA0100";
+var red_light = "#FF0100";
+
+
+
 //! Змійка
 var snake = {
   //Початкові корди
@@ -47,83 +62,21 @@ var berry3 = {
 //Швидкість
 var speed = 4;
 
+
+
 /// Functions
 //Генератор рандомних чисел
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-//Super Slow Speed
-$(document).on("click", "#speed1", function () {
-  $("#speed1").addClass("active");
-  $("#speed2").removeClass("active");
-  $("#speed3").removeClass("active");
-  $("#speed4").removeClass("active");
-  $("#speed5").removeClass("active");
-  speed = 6.5;
-});
-//Low Speed
-$(document).on("click", "#speed2", function () {
-  $("#speed1").removeClass("active");
-  $("#speed2").addClass("active");
-  $("#speed3").removeClass("active");
-  $("#speed4").removeClass("active");
-  $("#speed5").removeClass("active");
-  speed = 5.5;
-});
-//Normal Speed
-$(document).on("click", "#speed3", function () {
-  $("#speed1").removeClass("active");
-  $("#speed2").removeClass("active");
-  $("#speed3").addClass("active");
-  $("#speed4").removeClass("active");
-  $("#speed5").removeClass("active");
-  speed = 4;
-});
-//High Speed
-$(document).on("click", "#speed4", function () {
-  $("#speed1").removeClass("active");
-  $("#speed2").removeClass("active");
-  $("#speed3").removeClass("active");
-  $("#speed4").addClass("active");
-  $("#speed5").removeClass("active");
-  speed = 2.5;
-});
-//Impossible Speed
-$(document).on("click", "#speed5", function () {
-  $("#speed1").removeClass("active");
-  $("#speed2").removeClass("active");
-  $("#speed3").removeClass("active");
-  $("#speed4").removeClass("active");
-  $("#speed5").addClass("active");
-  speed = 1.5;
-});
-//1 berry
-$(document).on("click", "#food1", function () {
-  $("#food1").addClass("active");
-  $("#food2").removeClass("active");
-  $("#food3").removeClass("active");
-  food_num = 1;
-});
 
-//2 berrys
-$(document).on("click", "#food2", function () {
-  $("#food1").removeClass("active");
-  $("#food2").addClass("active");
-  $("#food3").removeClass("active");
-  food_num = 2;
-});
 
-//3 berrys
-$(document).on("click", "#food3", function () {
-  $("#food1").removeClass("active");
-  $("#food2").removeClass("active");
-  $("#food3").addClass("active");
-  food_num = 3;
-});
 
 /// Main Options
 const canvas = document.getElementById("game");
 const cx = canvas.getContext("2d");
+
+
 
 /// Game Loop
 function loop() {
@@ -168,10 +121,23 @@ function loop() {
     snake.cells.pop();
   }
 
+
+
   /// Малюємо їжу
-  cx.fillStyle = "#E10056";
+  //Skin 1 -Default
+  if (skin==1) {
+    cx.fillStyle = pink_light;
+    cx.shadowColor = pink_light;
+  }
+  else if (skin==2) {
+    cx.fillStyle = blue_light;
+    cx.shadowColor = blue_light;
+  }
+  else if (skin==3) {
+    cx.fillStyle = red_light;
+    cx.shadowColor = red_light;
+  }
   cx.shadowBlur = 5;
-  cx.shadowColor = "#DA256A";
   var miz = grid / 3.5;
   if (food_num == 1) {
     cx.fillRect(berry.x + miz / 2, berry.y + miz / 2, grid - miz, grid - miz);
@@ -184,18 +150,47 @@ function loop() {
     cx.fillRect(berry3.x + miz / 2, berry3.y + miz / 2, grid - miz, grid - miz);
   }
 
+
+
   /// Малюємо змійку
   snake.cells.forEach(function (cell, index) {
-    if (index == 0) {
-      //Голова
-      cx.fillStyle = "#E10056";
-    } else {
-      //Тіло
-      cx.fillStyle = "#910033";
+    //Skin 1 - Default
+    if (skin==1) {
+      cx.shadowColor = pink_light;
+      if (index == 0) {
+        //Голова
+        cx.fillStyle = pink_light;
+      } else {
+        //Тіло
+        cx.fillStyle = pink;
+      }
+    }
+    //Skin 2 - Blue
+    else if (skin==2) {
+      cx.shadowColor = blue_light;
+      if (index == 0) {
+        //Голова
+        cx.fillStyle = blue_light;
+      } else {
+        //Тіло
+        cx.fillStyle = blue;
+      }
+    }
+    //Skin 3 - Red
+    else if (skin==3) {
+      cx.shadowColor = red_light;
+      if (index == 0) {
+        //Голова
+        cx.fillStyle = red_light;
+      } else {
+        //Тіло
+        cx.fillStyle = red;
+      }
     }
     cx.shadowBlur = 30;
-    cx.shadowColor = "#E10056";
     cx.fillRect(cell.x, cell.y, grid, grid);
+
+
 
     /// Змійка з'їла їжу
     if (cell.x === berry.x && cell.y === berry.y) {
@@ -221,6 +216,8 @@ function loop() {
       berry3.x = getRandomInt(0, 25) * grid;
       berry3.y = getRandomInt(0, 25) * grid;
     }
+
+
 
     /// Кінець гри
     //Перевіряємо, чи змія не чіпає себе
@@ -262,6 +259,9 @@ function loop() {
   HTML_score.innerHTML = "Max: " + maxScore;
 }
 
+
+
+/// Controls
 document.addEventListener("keydown", function (e) {
   //Якщо змійка рухається вліво, то якщо ще раз нажати вліво - нічого не зміниться
   //Якщо нажата стрілка вліво і при цьому змійка нікуди не рухається по горизонталі...

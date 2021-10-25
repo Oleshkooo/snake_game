@@ -1,8 +1,19 @@
 body {
   background: #353235;
-  color: #E10056;
   font-family: Arial;
   font-weight: bold;
+}
+
+.color-default {
+  color: #E10056;
+}
+
+.color-blue {
+  color: #1400A4;
+}
+
+.color-red {
+  color: #FD0F0E;
 }
 
 .canvas-flex {
@@ -74,15 +85,12 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.sidebar .container .left, .sidebar .container .right {
-  width: 18vw;
-  height: inherit;
-  background: #161618;
-  border: 20px solid #161618;
-  border-radius: 20px;
-}
-.sidebar .container .left {
+.sidebar .container .left .container,
+.sidebar .container .right .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,28 +98,26 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.sidebar .container .left div {
+.sidebar .container .left .container div,
+.sidebar .container .right .container div {
   width: 70%;
-  margin-bottom: 3vh;
+  margin: 1.5vh 0 1.5vh 0;
   background: #353235;
   border: 15px solid #353235;
   border-radius: 20px;
   text-align: center;
   color: #ecf0f1;
   cursor: pointer;
+  -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
 }
-.sidebar .container .left div:last-child {
-  margin-bottom: 0;
-}
-.sidebar .container .left .active {
-  border-color: #1e1e20;
-  background: #1e1e20;
-}
-.sidebar .container .right {
+.sidebar .container .left .container .food,
+.sidebar .container .left .container .speed,
+.sidebar .container .left .container .skins,
+.sidebar .container .right .container .food,
+.sidebar .container .right .container .speed,
+.sidebar .container .right .container .skins {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -125,21 +131,20 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.sidebar .container .right div {
-  width: 70%;
-  margin-bottom: 3vh;
-  background: #353235;
-  border: 15px solid #353235;
+  -webkit-transition: 0.8s linear;
+  transition: 0.8s linear;
+  width: 18vw;
+  height: inherit;
+  background: #161618;
+  border: 20px solid #161618;
   border-radius: 20px;
-  text-align: center;
-  color: #ecf0f1;
-  cursor: pointer;
 }
-.sidebar .container .right div:last-child {
-  margin-bottom: 0;
-}
-.sidebar .container .right .active {
+.sidebar .container .left .container .food .active,
+.sidebar .container .left .container .speed .active,
+.sidebar .container .left .container .skins .active,
+.sidebar .container .right .container .food .active,
+.sidebar .container .right .container .speed .active,
+.sidebar .container .right .container .skins .active {
   border-color: #1e1e20;
   background: #1e1e20;
 }
