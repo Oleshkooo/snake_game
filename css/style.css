@@ -6,14 +6,17 @@ body {
 
 .color-pink {
   color: #E10056;
+  text-shadow: 0px 0px 10px rgba(225, 0, 86, 0.7);
 }
 
 .color-blue {
-  color: #1400A4;
+  color: #1C00EC;
+  text-shadow: 0px 0px 9px rgba(28, 0, 236, 0.7);
 }
 
 .color-red {
-  color: #FD0F0E;
+  color: #FF0100;
+  text-shadow: 0px 0px 9px rgba(255, 1, 0, 0.7);
 }
 
 .canvas-flex {
