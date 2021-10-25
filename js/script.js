@@ -94,6 +94,9 @@ $(document).on("click", "#skin1", function () {
   $("#skin2").removeClass("active");
   $("#skin3").removeClass("active");
   skin = 1;
+  $("#canvas-flex").addClass("color-pink");
+  $("#canvas-flex").removeClass("color-blue");
+  $("#canvas-flex").removeClass("color-red");
 });
 //Skin 2 - Blue
 $(document).on("click", "#skin2", function () {
@@ -101,6 +104,9 @@ $(document).on("click", "#skin2", function () {
   $("#skin2").addClass("active");
   $("#skin3").removeClass("active");
   skin = 2;
+  $("#canvas-flex").removeClass("color-pink");
+  $("#canvas-flex").addClass("color-blue");
+  $("#canvas-flex").removeClass("color-red");
 });
 //Skin 3 - Red
 $(document).on("click", "#skin3", function () {
@@ -108,4 +114,7 @@ $(document).on("click", "#skin3", function () {
   $("#skin2").removeClass("active");
   $("#skin3").addClass("active");
   skin = 3;
+  $("#canvas-flex").removeClass("color-pink");
+  $("#canvas-flex").removeClass("color-blue");
+  $("#canvas-flex").addClass("color-red");
 });
